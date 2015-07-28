@@ -1,0 +1,60 @@
+Passos para a criação de um programa
+pre-processor (prepara as definições com # - cabeçalho): gcc -E/ cpp
+assembler (cria file.s sobre o código.c): gcc -S
+compilar (cria file.o, um objeto binário): gcc -c
+link (conecta o objeto às system libraries do OS): ld
+Porém o gcc faz isto automaticamente: gcc -o obj_name file.o/ gcc -o obj_name file.c
+
+
+Diferença:
+#include <lib.h>  busca pelo header no local padrão do sistema
+#include "lib.h"  busca pelo header na pasta corrente/atual
+
+Comandos condicionais de compilação:
+#ifdef SYMBOL
+<lines to compile if SYMBOL is defined>
+#else
+<lines to compile if SYMBOL is undefined>
+#endif
+
+Definição de estruturas ("novos tipos de variáveis"):
+struct sample_s {
+ int index;
+ float value;	
+ float error;
+} aSample;
+A variável aSample do tipo sample_s é utilizada com a sintax: aSample.field = <store>. Ex. aSample.value = 2.33;
+Para se definir outra variável deste tipo é preciso indicar o "struct" explicitamente: struct sample_s another_sample.
+Para não precisar fazer isto, basta utilizar "typedef" antes do struct na primeira definição. E a criação de novas variáveis do tipo aSample
+passa a ser possivel diretamente.
+
+Ponteiros:
+A variável "&" que é usada para direcionar o endereço de uma variável, pode ser armazenada em um ponteiro (um endereço para uma variável);
+Um ponteiro deve ser da mesma categoria que a variável a ser gravada, e é definido com "*": ex. int a; int* pa = &a;
+Para acessar/obter informação ao ponteiro se usa "*": ex. printf(*pa) ou *pa = 21;
+
+Comando em C para obter tamanho (em termos da alocação de memória) de uma variável: sizeof;
+
+Retornando a ideia de criar estruturas, pode-se criar um ponteiro de um estrutura:
+Ex.
+   typedef struct sample_s {
+   int index;
+   float value;
+   float error;
+   } sampleType;
+     sampleType* aSample = (sampleType*)malloc(sizeof(sampleType));
+O comando malloc cria um vetor (com o tamanho da variavel do tipo sampleType) de posições da memória para ser utilizado.
+Para acessar os campos de sampleType há duas possibilidades agora, com o "." ou com o "->":
+
+   (*aSample).index = 255;						aSample->index = 255;
+   (*aSample).value = 3.14;                                     ou  	aSample->value = 3.14;
+   (*aSample).error = 0.03;						aSample->error = 0.03;						
+   float maxValue = (*aSample).value + (*aSample).error;		float maxValue = (*aSample)->value + (*aSample)->error;
+
+
+
+
+
+
+
+
