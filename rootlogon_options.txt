@@ -1,0 +1,61 @@
+{
+  ///Save the content of this files as .root_logon.C
+  ///It'll be automaticaly loaded by ROOT when it is called
+  TStyle *my_style = new TStyle("my_style","Micah's style");
+  
+  my_style->SetCanvasColor(0);
+  my_style->SetCanvasBorderMode(0);
+  my_style->SetCanvasBorderSize(0);
+  my_style->SetFrameBorderMode(0);
+  my_style->SetFrameFillColor(0);
+  my_style->SetFrameFillStyle(0);
+
+  my_style->SetTitleFont(42,"");
+  my_style->SetTitleFontSize(0.05);
+  my_style->SetTitleStyle(0);
+  my_style->SetTitleBorderSize(0);
+  my_style->SetTitleX(0.38);
+  my_style->SetTitleY(0.99);
+
+  my_style->SetPadTickY(1);	///Habilita ticks nas 4 bordas do grafico
+  my_style->SetPadTickX(1);
+  my_style->SetPadTopMargin(0.07);
+  my_style->SetPadBottomMargin(0.12);
+  my_style->SetPadLeftMargin(0.18);
+  my_style->SetPadRightMargin(0.05);
+
+  my_style->SetLabelSize(0.045,"xyz");
+  my_style->SetTitleSize(0.045,"xyz");
+  my_style->SetTitleOffset(1.2,"x");
+  my_style->SetTitleOffset(1.8,"y");
+  my_style->SetNdivisions(509,"y");
+  my_style->SetNdivisions(507,"x");
+  my_style->SetMarkerStyle(20);
+  my_style->SetMarkerColor(9);
+
+  my_style->SetFitFormat(".6f");
+  my_style->SetFuncColor(kRed);
+  my_style->SetFuncWidth(2);
+
+  my_style->SetStatFormat(".6f");
+  my_style->SetStatW(0.36);
+  my_style->SetStatY(0.91);
+  my_style->SetStatX(0.93);
+  my_style->SetStatFont(42);
+  my_style->SetStatFontSize(0.035);
+  my_style->SetStatColor(0);
+  //my_style->SetStatStyle(0);
+  my_style->SetStatBorderSize(1);
+
+  my_style->SetHistFillColor(kCyan-3);
+  my_style->SetHistFillStyle(3001);
+  my_style->SetHistLineColor(9);
+
+  my_style->SetLegendBorderSize(0);
+  my_style->SetLegendFillColor(0);
+  my_style->SetLegendFont(42);
+  my_style->SetLegendTextSize(0.06);
+
+  gROOT->SetStyle("my_style");
+
+}
